@@ -159,11 +159,11 @@ class Player:
             return result
         else:
             print("Can't use the potion")
-            return {"error": "potion_not_found"}
-
+            return {"error": "potion not found", "reason": "potion doesn't exist"}
+    
     def add_buff(self, stat: str, amount: int, duration: int) -> None:
         if stat not in ["str", "dex"]:
-            return {"error": "invalid_buff_type"}
+            return {"error": "invalid buff type", "reason": "not a valid stat"}
         self.__buffs.append((stat, amount, duration))
         return amount
     

@@ -63,21 +63,23 @@ class Potion:
         self.__duration = new_duration
 
     def __apply_heal(self, target) -> int | dict:
-        if hasattr(target, "heal") and callable(getattr(target, "heal")):
+        if hasattr(target, "heal") and callable(getattr(target, "heal")) and hasattr(target, "health") and hasattr(target, "max_health") and hasattr(target, "name"):
+            if target.health == target.max_health:
+                return {"error": "Cure failed", "reason": f"{target.name} has already max HP"}
             return target.heal(self.__amount)
         else:
-            return {"error": "unsupported_target"}
+            return {"error": "unsupported target", "reason": "target doesn't have heal attribute"}
         
     def __apply_buff(self, target) -> int | dict:
         if hasattr(target, "add_buff") and callable(getattr(target, "add_buff")):
             stat = self.effect.split("_")[1]
             return target.add_buff(stat, self.__amount, self.__duration)
         else:
-            return {"error": "unsupported_target"}
+            return {"error": "unsupported_target", "reason": "target doesn't have a valid buff attribute"}
         
     def apply_to(self, target) -> dict:
         if self.__used:
-            return {"error": "already_consumed"}
+            return {"error": "Cure failed", "reason": "potion is already used"}
         if self.__effect == "heal":
             hp_healed = self.__apply_heal(target)
             if isinstance(hp_healed, dict):

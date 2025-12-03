@@ -93,7 +93,7 @@ class GameController:
             else:   
                 self.__view.show_action_failure(player.name, result['error'], result['reason'])
         damage = player.attack(enemy)
-        self.__view.show_attack_result(player.name, enemy.name, damage, player.weapon)
+        self.__view.show_attack_result(player.name, enemy.name, damage)
     
     def start_game_loop(self):
         self.__view.show_welcome()

@@ -14,8 +14,8 @@ class ConsoleView:
         print(Fore.MAGENTA + f"{player_name} uses: {default_weapon_name}")
     
     def show_initial_stats(self, p1, p2):
-        left = (Fore.GREEN + f"{p1.name} (HP: {p1.health} ❤️, STRENGTH: {p1.strength} 💪🏻, DEXTRITY: {p1.dexterity} ⚡)")
-        right = (Fore.YELLOW + f"{p2.name} (HP: {p2.health} ❤️, STRENGTH: {p2.strength} 💪🏻, DEXTRITY: {p2.dexterity} ⚡)")
+        left = (Fore.GREEN + f"{p1.name} (HP: {p1.health} ❤️, STRENGTH: {p1.strength} 💪, DEXTRITY: {p1.dexterity} ⚡)")
+        right = (Fore.YELLOW + f"{p2.name} (HP: {p2.health} ❤️, STRENGTH: {p2.strength} 💪, DEXTRITY: {p2.dexterity} ⚡)")
         print(left + " \n" + right)
 
     def show_turn_header(self, turn_number):

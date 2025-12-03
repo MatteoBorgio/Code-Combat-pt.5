@@ -2,11 +2,11 @@ from player import Player
 from weapon import Weapon
 from random import choice
 from random import randint
-from view import View
+from view import ConsoleView
 from potion import Potion
 
 class GameController:
-    def __init__(self, view: View, player1: Player, player2: Player):
+    def __init__(self, view: ConsoleView, player1: Player, player2: Player):
         self.__view = view
         self.__player1 = player1
         self.__player2 = player2
@@ -126,5 +126,5 @@ class GameController:
             
 
 if __name__ == "__main__":
-    game_controller = GameController(View(), Player("", 50, 50, randint(10, 20), randint(10, 20), []), Player("", 50, 50, randint(10, 20), randint(10, 20), []))
+    game_controller = GameController(ConsoleView(), Player("", 50, 50, randint(10, 20), randint(10, 20), []), Player("", 50, 50, randint(10, 20), randint(10, 20), []))
     game_controller.start_game_loop()                               

@@ -2,7 +2,6 @@ from colorama import init, Fore, Style
 
 init(autoreset=True)
 
-
 class ConsoleView:
     def show_welcome(self):
         print(Style.BRIGHT + Fore.CYAN + "=== COMBAT SIMULATION ===")

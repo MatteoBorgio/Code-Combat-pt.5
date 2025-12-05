@@ -2,7 +2,7 @@ from weapon import Weapon
 from potion import Potion
 
 class Player:
-    def __init__(self, name: str, max_health: int, health: int, strength: int, dexterity: int, potions: list[Potion]):
+    def __init__(self, name: str, max_health: int, health: int, strength: int, dexterity: int):
         if max_health < 1:
             raise ValueError("Max health must be >= 1")
         if health != max_health:
@@ -11,10 +11,8 @@ class Player:
             raise ValueError("Strength value must be in the range 1–20")
         if dexterity < 1 or dexterity > 20:
             raise ValueError("Dexterity value must be in the range 1–20")
-        if len(potions) > 3:
-            raise ValueError("The player can't equip more than 3 potions")
         
-        self.__potions = potions
+        self.__potions = []
         self.__name = name
         self.__max_health = max_health
         self.__health = health

@@ -41,7 +41,7 @@ class GameController:
             self.__handle_turn(self.__player1, self.__player2)
             if not self.__player2.is_alive():
                 break
-            self.__handle_turn(self.__player1, self.__player2)
+            self.__handle_turn(self.__player2, self.__player2)
             if not self.__player1.is_alive():
                 break
             self.__player1.tick_buffs()

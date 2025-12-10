@@ -73,7 +73,7 @@ class GameSetup:
             print("Player not valid")
     
     def generate_name() -> str:
-        return choice(GameSetup.NAME_LIST) + choice(GameSetup.SURNAME_LIST)
+        return choice(GameSetup.NAME_LIST) + " " + choice(GameSetup.SURNAME_LIST)
     
     def assign_weapon(player) -> None:
         try:
